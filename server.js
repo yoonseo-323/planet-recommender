@@ -36,6 +36,12 @@ app.get("/api/stats", (req, res) => {
   res.send(planetCounts);
 });
 
+
+// 경로에 index 보내기기
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 // 서버에 stats 경로 연결
 app.get("/stats", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "stats.html"));
@@ -45,7 +51,8 @@ app.get('/responses', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'responses.html'));
 });
 
-
+// 포트 설정 (Render가 환경변수로 지정)
+const PORT = process.env.PORT || 3000;
 // 서버 시작
 app.listen(PORT, () => {
   console.log(`✅ 서버 실행 중: http://localhost:${PORT}`);
