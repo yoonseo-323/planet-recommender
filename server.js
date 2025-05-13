@@ -3,8 +3,9 @@ const fs = require("fs");
 const path = require("path");
 const bodyParser = require("body-parser");
 
+// 포트 설정 (Render가 환경변수로 지정)
+const PORT = process.env.PORT || 3000;
 const app = express();
-const PORT = 3000;
 
 const DATA_FILE = path.join(__dirname, "data", "responses.json");
 
@@ -51,8 +52,6 @@ app.get('/responses', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'responses.html'));
 });
 
-// 포트 설정 (Render가 환경변수로 지정)
-const PORT = process.env.PORT || 3000;
 // 서버 시작
 app.listen(PORT, () => {
   console.log(`✅ 서버 실행 중: http://localhost:${PORT}`);
