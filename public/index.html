@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>행성 추천기</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2em;
+      max-width: 600px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 1em;
+    }
+    select, button {
+      width: 100%;
+      padding: 0.5em;
+      font-size: 1em;
+      margin-top: 0.3em;
+      box-sizing: border-box;
+    }
+    #result {
+      margin-top: 2em;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+    #planetTable {
+      margin-top: 2em;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9em;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+    .nav-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+      margin-top: 2em;
+    }
+    @media (max-width: 480px) {
+      body { padding: 1em; }
+      table, th, td { font-size: 0.8em; }
+      h1 { font-size: 1.4em; }
+    }
+  </style>
+</head>
+<body>
+  <h1>나에게 맞는 행성 추천</h1>
+
+  <label>1. 하루 수면 시간은 평균적으로 얼마나 되시나요?</label>
+  <select id="sleepTime">
+    <option>4시간 이하</option>
+    <option>4~8시간</option>
+    <option>8~10시간</option>
+    <option>10시간 이상</option>
+  </select>
+
+  <label>2. 보통 몇시에 주무시나요?</label>
+  <select id="sleepStart">
+    <option>22시 이전</option>
+    <option>22~0시</option>
+    <option>0~2시</option>
+    <option>2시 이후</option>
+  </select>
+
+  <label>3. 보통 몇시에 활동을 시작하시나요?</label>
+  <select id="activeStart">
+    <option>2시간 이상 전에 준비</option>
+    <option>2시간~1시간 전</option>
+    <option>1시간~30분 전</option>
+    <option>30분 이전</option>
+  </select>
+
+  <label>4. 하루 식사 횟수는 몇번인가요?</label>
+  <select id="mealCount">
+    <option>1끼</option>
+    <option>2끼</option>
+    <option>3끼</option>
+    <option>3끼 이상</option>
+  </select>
+
+  <button onclick="submitForm()">행성 추천 받기</button>
+
+  <div id="result"></div>
+
+  <!-- 추천 후에만 보이는 버튼 -->
+  <div id="resetSection" style="display:none; margin-top: 1em;">
+    <button onclick="resetForm()">🔁 다시 추천 받기</button>
+  </div>
+
+  <!-- 항상 보이는 버튼 -->
+  <div class="nav-buttons">
+    <button onclick="location.href='/stats'">📊 추천 통계 보기</button>
+    <button onclick="togglePlanetTable()">🪐 추천 행성 목록 보기</button>
+    <button onclick="location.href='/responses'">📄 응답 전체 보기</button>
+  </div>
+
+  <!-- 행성 표 -->
+  <div id="planetTable" style="display:none;">
+    <h2>추천 행성 목록 및 기준표</h2>
+    <table>
+      <tr><th>점수 구간</th><th>추천 행성</th><th>주기 (시간)</th><th>설명</th></tr>
+      <tr><td>0~24</td><td>Hypothetical-X2</td><td>20</td><td>극단적으로 짧은 리듬</td></tr>
+      <tr><td>25~35</td><td>Hypothetical-X1</td><td>22</td><td>짧은 생활 리듬</td></tr>
+      <tr><td>36~45</td><td>TRAPPIST-1c</td><td>23.5</td><td>약간 짧은 주기</td></tr>
+      <tr><td>46~55</td><td>Earth / TRAPPIST-1d</td><td>24</td><td>지구 유사형</td></tr>
+      <tr><td>56~65</td><td>Mars</td><td>24.6</td><td>지구 비슷</td></tr>
+      <tr><td>66~75</td><td>Wolf 1061c</td><td>25</td><td>살짝 장주기형</td></tr>
+      <tr><td>76~85</td><td>Kepler-452b</td><td>26</td><td>장주기 생활자</td></tr>
+      <tr><td>86~90</td><td>Proxima b</td><td>27</td><td>더 긴 활동자</td></tr>
+      <tr><td>91~98</td><td>Kepler-186f</td><td>33</td><td>매우 긴 활동자</td></tr>
+      <tr><td>99~100</td><td>Gliese 581 d</td><td>36</td><td>극장주기형</td></tr>
+    </table>
+  </div>
+
+  <script>
+    function togglePlanetTable() {
+      const table = document.getElementById("planetTable");
+      table.style.display = (table.style.display === "none") ? "block" : "none";
+    }
+
+    function getScore(sleepTime, sleepStart, activeStart, mealCount) {
+      const scoreMap = {
+        sleepTime: { "4시간 이하": 0, "4~8시간": 8, "8~10시간": 16, "10시간 이상": 25 },
+        sleepStart: { "22시 이전": 0, "22~0시": 8, "0~2시": 16, "2시 이후": 25 },
+        activeStart: { "2시간 이상 전에 준비": 0, "2시간~1시간 전": 8, "1시간~30분 전": 16, "30분 이전": 25 },
+        mealCount: { "1끼": 25, "2끼": 16, "3끼": 8, "3끼 이상": 0 }
+      };
+      return scoreMap.sleepTime[sleepTime] + scoreMap.sleepStart[sleepStart] + scoreMap.activeStart[activeStart] + scoreMap.mealCount[mealCount];
+    }
+
+    function getPlanetInfo(score) {
+      const planets = [
+        { min: 0, max: 24, name: "Hypothetical-X2 (20시간)", reason: "극단적으로 짧은 리듬에 적합한 생활 패턴입니다." },
+        { min: 25, max: 35, name: "Hypothetical-X1 (22시간)", reason: "짧은 수면과 빠른 시작이 많은 단주기형입니다." },
+        { min: 36, max: 45, name: "TRAPPIST-1c (23.5시간)", reason: "지구보다 살짝 짧은 주기에 더 적합한 생활입니다." },
+        { min: 46, max: 55, name: "Earth / TRAPPIST-1d (24시간)", reason: "24시간 주기에 잘 맞는 안정적인 패턴입니다." },
+        { min: 56, max: 65, name: "Mars (24.6시간)", reason: "조금 더 여유 있는 생활 리듬을 가지고 있어요." },
+        { min: 66, max: 75, name: "Wolf 1061c (25시간)", reason: "긴 수면, 여유로운 준비에 적합한 주기입니다." },
+        { min: 76, max: 85, name: "Kepler-452b (26시간)", reason: "장주기 수면과 여유로운 생활 패턴에 맞습니다." },
+        { min: 86, max: 90, name: "Proxima b (27시간)", reason: "긴 수면과 늦은 취침에 적합한 리듬이에요." },
+        { min: 91, max: 98, name: "Kepler-186f (33시간)", reason: "하루를 길게 쓰는 대장주기형 생활입니다." },
+        { min: 99, max: 100, name: "Gliese 581 d (36시간)", reason: "매우 긴 수면 및 늦은 활동 주기에 최적입니다." }
+      ];
+      return planets.find(p => score >= p.min && score <= p.max);
+    }
+
+    async function submitForm() {
+      const sleepTime = document.getElementById("sleepTime").value;
+      const sleepStart = document.getElementById("sleepStart").value;
+      const activeStart = document.getElementById("activeStart").value;
+      const mealCount = document.getElementById("mealCount").value;
+
+      const score = getScore(sleepTime, sleepStart, activeStart, mealCount);
+      const planetInfo = getPlanetInfo(score);
+
+      document.getElementById("result").innerHTML =
+        `🌍 <strong>추천 행성:</strong> ${planetInfo.name} (총점 ${score}점)<br>${planetInfo.reason}`;
+
+      document.getElementById("resetSection").style.display = "block";
+
+      await fetch("/submit", {
+        method: "POST",
+        body: JSON.stringify({ sleepTime, sleepStart, activeStart, mealCount, score, planet: planetInfo.name }),
+        headers: { "Content-Type": "application/json" }
+      });
+    }
+
+    function resetForm() {
+      document.getElementById("sleepTime").selectedIndex = 0;
+      document.getElementById("sleepStart").selectedIndex = 0;
+      document.getElementById("activeStart").selectedIndex = 0;
+      document.getElementById("mealCount").selectedIndex = 0;
+      document.getElementById("result").innerText = "";
+      document.getElementById("planetTable").style.display = "none";
+      document.getElementById("resetSection").style.display = "none";
+    }
+  </script>
+</body>
+</html>
