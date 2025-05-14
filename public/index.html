@@ -4,53 +4,20 @@
   <meta charset="UTF-8" />
   <title>행성 추천기</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    body {
-      font-family: sans-serif;
-      padding: 2em;
-      max-width: 600px;
-      margin: auto;
-    }
-    label {
-      display: block;
-      font-weight: bold;
-      margin-top: 1em;
-    }
+    body { font-family: sans-serif; padding: 2em; max-width: 700px; margin: auto; }
+    label { display: block; font-weight: bold; margin-top: 1em; }
     select, input, button {
-      width: 100%;
-      padding: 0.5em;
-      font-size: 1em;
-      margin-top: 0.3em;
-      box-sizing: border-box;
+      width: 100%; padding: 0.5em; font-size: 1em; margin-top: 0.3em; box-sizing: border-box;
     }
-    #result {
-      margin-top: 2em;
-      font-size: 1.1em;
-      font-weight: bold;
-    }
-    #resetSection {
-      margin-top: 1.5em;
-      display: none;
-    }
-    table {
-      margin-top: 1em;
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9em;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 8px;
-      text-align: center;
-    }
-    th {
-      background-color: #f0f0f0;
-    }
+    #result { margin-top: 2em; font-size: 1.1em; font-weight: bold; }
+    #resetSection { margin-top: 1.5em; display: none; }
+    table { margin-top: 1em; width: 100%; border-collapse: collapse; font-size: 0.9em; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+    th { background-color: #f0f0f0; }
     @media (max-width: 480px) {
       body { padding: 1em; }
       table, th, td { font-size: 0.8em; }
-      h1 { font-size: 1.4em; }
     }
   </style>
 </head>
@@ -58,7 +25,7 @@
   <h1>나에게 맞는 행성 추천</h1>
 
   <label for="nickname">1. 별명을 입력해주세요</label>
-  <input type="text" id="nickname" placeholder="예: 윤서" required />
+  <input type="text" id="nickname" required placeholder="예: 윤서" />
 
   <label>2. 하루 수면 시간은 평균적으로 얼마나 되시나요?</label>
   <select id="sleepTime">
@@ -103,57 +70,50 @@
     <button onclick="resetForm()">🔁 다시 추천 받기</button>
   </div>
 
-  <div id="static-buttons" style="margin-top: 1.5em;">
-    <button onclick="location.href='/stats'">📊 추천 통계 보기</button>
+  <div style="margin-top: 1.5em;">
+    <button onclick="location.href='stats.html'">📊 추천 통계 보기</button>
     <button onclick="togglePlanetTable()">🪐 행성 기준표 보기</button>
-    <button onclick="location.href='/responses'">📄 전체 응답 보기</button>
+    <button onclick="location.href='responses.html'">📄 전체 응답 보기</button>
+    <button onclick="triggerReset()">🧹 응답 기록 초기화</button>
   </div>
 
   <div id="planetTable" style="display:none; margin-top: 2em;">
     <h2>추천 행성 기준표</h2>
     <table>
       <tr><th>점수</th><th>행성</th><th>주기</th><th>설명</th></tr>
-      <tr><td>0~19</td><td>Hypothetical-X3</td><td>18</td><td>매우 긴 수면에 적합한 짧은 주기</td></tr>
-      <tr><td>20~34</td><td>Hypothetical-X2</td><td>20</td><td>장수면 생활자에게 적합</td></tr>
-      <tr><td>35~49</td><td>TRAPPIST-1c</td><td>23.5</td><td>지구보다 짧은 주기에 적합</td></tr>
-      <tr><td>50~59</td><td>Earth</td><td>24</td><td>표준적인 생활 리듬</td></tr>
-      <tr><td>60~69</td><td>Mars</td><td>24.6</td><td>수면 부족형, 긴 주기 추천</td></tr>
-      <tr><td>70~84</td><td>Kepler-452b</td><td>26</td><td>장주기 활동에 적합</td></tr>
-      <tr><td>85 이상</td><td>Gliese 581 d</td><td>36</td><td>극단적 수면 부족자에게 적합</td></tr>
+      <tr><td>0~24</td><td>Hypothetical-X2</td><td>20</td><td>극단적으로 짧은 리듬</td></tr>
+      <tr><td>25~35</td><td>Hypothetical-X1</td><td>22</td><td>짧은 생활 리듬</td></tr>
+      <tr><td>36~45</td><td>TRAPPIST-1c</td><td>23.5</td><td>약간 짧은 주기</td></tr>
+      <tr><td>46~55</td><td>Earth / TRAPPIST-1d</td><td>24</td><td>지구 유사형</td></tr>
+      <tr><td>56~65</td><td>Mars</td><td>24.6</td><td>지구 비슷</td></tr>
+      <tr><td>66~75</td><td>Wolf 1061c</td><td>25</td><td>살짝 장주기형</td></tr>
+      <tr><td>76~80</td><td>Kepler-452b</td><td>26</td><td>장주기 생활자</td></tr>
+      <tr><td>81~85</td><td>Proxima b</td><td>28</td><td>장주기 생활에 익숙한 사용자</td></tr>
+      <tr><td>86~90</td><td>HD 40307 g</td><td>30</td><td>극장주기 직전 리듬 실험자</td></tr>
+      <tr><td>91~95</td><td>Kepler-186f</td><td>33</td><td>매우 긴 활동자</td></tr>
+      <tr><td>96~100</td><td>Gliese 581 d</td><td>36</td><td>극장주기형</td></tr>
     </table>
   </div>
 
   <script>
     function togglePlanetTable() {
       const table = document.getElementById("planetTable");
-      table.style.display = (table.style.display === "none") ? "block" : "none";
+      table.style.display = table.style.display === "none" ? "block" : "none";
     }
 
     function calculateScore(answers) {
       const sleepScoreMap = {
-        "5시간 이하": 50,
-        "5-7시간": 40,
-        "7-8시간": 30,
-        "8-10시간": 20,
-        "10시간 이상": 10
+        "5시간 이하": 50, "5-7시간": 40, "7-8시간": 30, "8-10시간": 20, "10시간 이상": 10
       };
       const sleepStartScore = {
-        "22시 이전": 0,
-        "22-0시": 5,
-        "0-2시": 10,
-        "2시 이후": 15
+        "22시 이전": 0, "22-0시": 5, "0-2시": 10, "2시 이후": 15
       };
       const mealScoreMap = {
-        "1회": 10,
-        "2회": 5,
-        "3회": 0,
-        "3회 이상": -5
+        "1회": 10, "2회": 5, "3회": 0, "3회 이상": -5
       };
       const activeScoreMap = {
-        "2시간 이상 전에 준비": 0,
-        "2시간-1시간 전": 3,
-        "1시간-30분 전": 6,
-        "30분 이내": 10
+        "2시간 이상 전에 준비": 0, "2시간-1시간 전": 3,
+        "1시간-30분 전": 6, "30분 이내": 10
       };
 
       let score =
@@ -167,13 +127,17 @@
 
     function getPlanetInfo(score) {
       const planets = [
-        { min: 0, max: 19, name: "Hypothetical-X3 (18시간)", reason: "매우 긴 수면 패턴에 적합한 짧은 주기의 행성입니다." },
-        { min: 20, max: 34, name: "Hypothetical-X2 (20시간)", reason: "장수면 생활자에게 적합한 비교적 짧은 주기의 행성입니다." },
-        { min: 35, max: 49, name: "TRAPPIST-1c (23.5시간)", reason: "지구보다 살짝 짧은 주기에 더 적합한 생활입니다." },
-        { min: 50, max: 59, name: "Earth (24시간)", reason: "당신의 생활 리듬은 지구 기준에 잘 맞는 안정적인 패턴입니다." },
-        { min: 60, max: 69, name: "Mars (24.6시간)", reason: "조금 더 여유 있는 활동 리듬에 적합한 행성입니다." },
-        { min: 70, max: 84, name: "Kepler-452b (26시간)", reason: "장주기 수면과 여유로운 생활 패턴에 잘 맞습니다." },
-        { min: 85, max: Infinity, name: "Gliese 581 d (36시간)", reason: "극단적 수면 부족자에게 적합한 매우 긴 하루 주기의 행성입니다." },
+        { min: 0, max: 24, name: "Hypothetical-X2 (20시간)", reason: "극단적으로 짧은 리듬" },
+        { min: 25, max: 35, name: "Hypothetical-X1 (22시간)", reason: "짧은 생활 리듬" },
+        { min: 36, max: 45, name: "TRAPPIST-1c (23.5시간)", reason: "약간 짧은 주기" },
+        { min: 46, max: 55, name: "Earth / TRAPPIST-1d (24시간)", reason: "지구 유사형" },
+        { min: 56, max: 65, name: "Mars (24.6시간)", reason: "지구 비슷" },
+        { min: 66, max: 75, name: "Wolf 1061c (25시간)", reason: "살짝 장주기형" },
+        { min: 76, max: 80, name: "Kepler-452b (26시간)", reason: "장주기 생활자" },
+        { min: 81, max: 85, name: "Proxima b (28시간)", reason: "장주기 생활에 익숙한 사용자" },
+        { min: 86, max: 90, name: "HD 40307 g (30시간)", reason: "극장주기 직전 리듬 실험자" },
+        { min: 91, max: 95, name: "Kepler-186f (33시간)", reason: "매우 긴 활동자" },
+        { min: 96, max: 100, name: "Gliese 581 d (36시간)", reason: "극장주기형" }
       ];
       return planets.find(p => score >= p.min && score <= p.max);
     }
@@ -196,16 +160,10 @@
 
       await fetch("/submit", {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          nickname,
-          sleepTime,
-          sleepStart,
-          activeStart,
-          mealCount,
-          score,
-          planet: planetInfo.name
-        }),
-        headers: { "Content-Type": "application/json" }
+          nickname, sleepTime, sleepStart, activeStart, mealCount, score, planet: planetInfo.name
+        })
       });
     }
 
@@ -218,6 +176,25 @@
       document.getElementById("result").style.display = "none";
       document.getElementById("resetSection").style.display = "none";
       document.getElementById("planetTable").style.display = "none";
+    }
+
+    function triggerReset() {
+      const pw = prompt("응답을 초기화하려면 비밀번호를 입력하세요:");
+      if (!pw) return;
+      fetch("/reset-data", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: pw })
+      })
+      .then(res => res.json())
+      .then(result => {
+        if (result.success) {
+          alert("✅ 응답이 초기화되었습니다.");
+          location.reload();
+        } else {
+          alert("❌ 비밀번호가 틀렸습니다.");
+        }
+      });
     }
   </script>
 </body>

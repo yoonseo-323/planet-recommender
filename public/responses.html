@@ -2,46 +2,17 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>전체 응답 보기</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>전체 응답</title>
   <style>
-    body {
-      font-family: sans-serif;
-      padding: 2em;
-      max-width: 1000px;
-      margin: auto;
-    }
-    h1 {
-      font-size: 1.4em;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9em;
-      margin-top: 1em;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 8px;
-      text-align: center;
-    }
-    th {
-      background-color: #f0f0f0;
-    }
-    button {
-      margin-bottom: 1em;
-      padding: 0.5em 1em;
-      font-size: 0.9em;
-    }
-    @media (max-width: 600px) {
-      table, th, td {
-        font-size: 0.75em;
-      }
-    }
+    body { font-family: sans-serif; padding: 2em; max-width: 1000px; margin: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9em; margin-top: 1em; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+    th { background-color: #f0f0f0; }
+    button { margin-bottom: 1em; padding: 0.5em 1em; }
   </style>
 </head>
 <body>
-  <h1>전체 추천 응답 목록</h1>
+  <h1>전체 추천 응답</h1>
   <button onclick="location.href='/'">🏠 메인으로 돌아가기</button>
 
   <table>
@@ -74,7 +45,7 @@
         return;
       }
 
-      const sorted = [...data].reverse(); // 최신순
+      const sorted = [...data].reverse();
       for (const r of sorted) {
         const row = document.createElement('tr');
         row.innerHTML = `

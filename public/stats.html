@@ -2,35 +2,17 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>추천 통계</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>추천된 행성 통계</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    body {
-      font-family: sans-serif;
-      padding: 2em;
-      max-width: 1000px;
-      margin: auto;
-    }
-    h1 {
-      font-size: 1.5em;
-      margin-bottom: 0.5em;
-    }
-    canvas {
-      margin: 2em 0;
-      max-width: 100%;
-    }
-    button {
-      margin-bottom: 1em;
-      padding: 0.5em 1em;
-      font-size: 0.9em;
-    }
+    body { font-family: sans-serif; padding: 2em; max-width: 1000px; margin: auto; }
+    canvas { margin: 2em 0; max-width: 100%; }
+    button { margin-bottom: 1em; padding: 0.5em 1em; }
   </style>
 </head>
 <body>
-  <h1>추천된 행성 통계</h1>
+  <h1>추천된 행성 분포</h1>
   <button onclick="location.href='/'">🏠 메인으로 돌아가기</button>
-
   <canvas id="planetChart"></canvas>
 
   <script>
@@ -40,24 +22,24 @@
       return data;
     }
 
-    function makeBarChart(id, label, dataMap, labels) {
-      const ctx = document.getElementById(id).getContext('2d');
+    function drawChart(dataMap, labels) {
+      const ctx = document.getElementById("planetChart").getContext("2d");
       new Chart(ctx, {
-        type: 'bar',
+        type: "bar",
         data: {
           labels,
           datasets: [{
-            label,
+            label: "추천 수",
             data: labels.map(k => dataMap[k] || 0),
-            backgroundColor: '#4e79a7'
+            backgroundColor: "#4e79a7"
           }]
         },
         options: {
-          responsive: true,
           plugins: {
-            title: { display: true, text: label },
+            title: { display: true, text: "행성 추천 통계" },
             legend: { display: false }
-          }
+          },
+          responsive: true
         }
       });
     }
@@ -68,12 +50,14 @@
         count[d.planet] = (count[d.planet] || 0) + 1;
       });
 
-      const planetLabels = [
-        "Hypothetical-X3 (18시간)", "Hypothetical-X2 (20시간)", "TRAPPIST-1c (23.5시간)",
-        "Earth (24시간)", "Mars (24.6시간)", "Kepler-452b (26시간)", "Gliese 581 d (36시간)"
+      const labels = [
+        "Hypothetical-X2 (20시간)", "Hypothetical-X1 (22시간)", "TRAPPIST-1c (23.5시간)",
+        "Earth / TRAPPIST-1d (24시간)", "Mars (24.6시간)", "Wolf 1061c (25시간)",
+        "Kepler-452b (26시간)", "Proxima b (28시간)", "HD 40307 g (30시간)",
+        "Kepler-186f (33시간)", "Gliese 581 d (36시간)"
       ];
 
-      makeBarChart("planetChart", "추천된 행성 분포", count, planetLabels);
+      drawChart(count, labels);
     });
   </script>
 </body>
