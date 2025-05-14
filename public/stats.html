@@ -3,52 +3,114 @@
 <head>
   <meta charset="UTF-8" />
   <title>추천 통계</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    body { font-family: sans-serif; padding: 2em; max-width: 800px; margin: auto; }
-    canvas { margin-top: 2em; }
+    body {
+      font-family: sans-serif;
+      padding: 2em;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 1.5em;
+      margin-bottom: 0.5em;
+    }
+    canvas {
+      margin: 2em 0;
+      max-width: 100%;
+    }
+    button {
+      margin-bottom: 1em;
+      padding: 0.5em 1em;
+      font-size: 0.9em;
+    }
   </style>
 </head>
 <body>
-    <button onclick="location.href='/'">🏠 메인 화면으로</button>
+  <h1>추천 통계 시각화</h1>
+  <button onclick="location.href='/'">🏠 메인으로 돌아가기</button>
 
-  <h1>행성 추천 통계</h1>
-  <p>지금까지 추천된 행성들의 분포를 그래프로 보여줍니다.</p>
-  <canvas id="chart" width="600" height="400"></canvas>
+  <canvas id="sleepTimeChart"></canvas>
+  <canvas id="sleepStartChart"></canvas>
+  <canvas id="activeStartChart"></canvas>
+  <canvas id="mealChart"></canvas>
+  <canvas id="scoreChart"></canvas>
 
   <script>
-    async function drawChart() {
-      const res = await fetch("/api/stats");
+    async function loadData() {
+      const res = await fetch('/data/responses.json');
       const data = await res.json();
+      return data;
+    }
 
-      const labels = Object.keys(data);
-      const values = Object.values(data);
-
-      const ctx = document.getElementById("chart").getContext("2d");
+    function makeBarChart(ctxId, label, dataset, labels) {
+      const ctx = document.getElementById(ctxId).getContext('2d');
       new Chart(ctx, {
-        type: "bar",
+        type: 'bar',
         data: {
           labels,
           datasets: [{
-            label: "추천 횟수",
-            data: values,
-            backgroundColor: "rgba(54, 162, 235, 0.6)",
-            borderColor: "rgba(54, 162, 235, 1)",
-            borderWidth: 1
+            label,
+            data: labels.map(key => dataset[key] || 0),
+            backgroundColor: '#4e79a7'
           }]
         },
         options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-              ticks: { stepSize: 1 }
-            }
+          responsive: true,
+          plugins: {
+            legend: { display: false },
+            title: { display: true, text: label }
           }
         }
       });
     }
 
-    drawChart();
+    function makeScoreChart(scores) {
+      const ctx = document.getElementById('scoreChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: scores.map((_, i) => i + 1),
+          datasets: [{
+            label: '추천 점수',
+            data: scores,
+            fill: false,
+            borderColor: '#f28e2b',
+            tension: 0.1
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: { display: true, text: '점수 분포' }
+          }
+        }
+      });
+    }
+
+    loadData().then(data => {
+      const count = (list) => list.reduce((acc, item) => {
+        acc[item] = (acc[item] || 0) + 1;
+        return acc;
+      }, {});
+
+      const sleepTimes = count(data.map(d => d.sleepTime));
+      const sleepStarts = count(data.map(d => d.sleepStart));
+      const activeStarts = count(data.map(d => d.activeStart));
+      const meals = count(data.map(d => d.mealCount));
+      const scores = data.map(d => d.score);
+
+      makeBarChart('sleepTimeChart', '수면 시간 분포', sleepTimes,
+        ["5시간 이하", "5-7시간", "7-8시간", "8-10시간", "10시간 이상"]);
+      makeBarChart('sleepStartChart', '수면 시작 시간 분포', sleepStarts,
+        ["22시 이전", "22-0시", "0-2시", "2시 이후"]);
+      makeBarChart('activeStartChart', '준비 시작 시간 분포', activeStarts,
+        ["2시간 이상 전에 준비", "2시간-1시간 전", "1시간-30분 전", "30분 이내"]);
+      makeBarChart('mealChart', '식사 횟수 분포', meals,
+        ["1회", "2회", "3회", "3회 이상"]);
+      makeScoreChart(scores);
+    });
   </script>
 </body>
 </html>
