@@ -127,20 +127,32 @@
 
     function getPlanetInfo(score) {
       const planets = [
-        { min: 0, max: 24, name: "Hypothetical-X2 (20시간)", reason: "극단적으로 짧은 리듬" },
-        { min: 25, max: 35, name: "Hypothetical-X1 (22시간)", reason: "짧은 생활 리듬" },
-        { min: 36, max: 45, name: "TRAPPIST-1c (23.5시간)", reason: "약간 짧은 주기" },
-        { min: 46, max: 55, name: "Earth / TRAPPIST-1d (24시간)", reason: "지구 유사형" },
-        { min: 56, max: 65, name: "Mars (24.6시간)", reason: "지구 비슷" },
-        { min: 66, max: 75, name: "Wolf 1061c (25시간)", reason: "살짝 장주기형" },
-        { min: 76, max: 80, name: "Kepler-452b (26시간)", reason: "장주기 생활자" },
-        { min: 81, max: 85, name: "Proxima b (28시간)", reason: "장주기 생활에 익숙한 사용자" },
-        { min: 86, max: 90, name: "HD 40307 g (30시간)", reason: "극장주기 직전 리듬 실험자" },
-        { min: 91, max: 95, name: "Kepler-186f (33시간)", reason: "매우 긴 활동자" },
-        { min: 96, max: 100, name: "Gliese 581 d (36시간)", reason: "극장주기형" }
-      ];
-      return planets.find(p => score >= p.min && score <= p.max);
+          { min: 0, max: 24, name: "Hypothetical-X2 (20시간)", reason: "극단적으로 짧은 리듬" },
+          { min: 25, max: 35, name: "Hypothetical-X1 (22시간)", reason: "짧은 생활 리듬" },
+          { min: 36, max: 45, name: "TRAPPIST-1c (23.5시간)", reason: "약간 짧은 주기" },
+          { min: 46, max: 55, name: "Earth / TRAPPIST-1d (24시간)", reason: "지구 유사형" },
+          { min: 56, max: 65, name: "Mars (24.6시간)", reason: "지구 비슷" },
+          { min: 66, max: 75, name: "Wolf 1061c (25시간)", reason: "살짝 장주기형" },
+          { min: 76, max: 80, name: "Kepler-452b (26시간)", reason: "장주기 생활자" },
+          { min: 81, max: 85, name: "Proxima b (28시간)", reason: "장주기 생활에 익숙한 사용자" },
+          { min: 86, max: 90, name: "HD 40307 g (30시간)", reason: "극장주기 직전 리듬 실험자" },
+          { min: 91, max: 95, name: "Kepler-186f (33시간)", reason: "매우 긴 활동자" },
+          { min: 96, max: 100, name: "Gliese 581 d (36시간)", reason: "극장주기형" }
+        ];
+
+        let exact = planets.find(p => score >= p.min && score <= p.max);
+        if (exact) return exact;
+
+        // 정확히 일치하는 구간이 없을 경우, 가장 가까운 점수 구간으로 추천
+        let closest = planets.reduce((prev, curr) => {
+          const prevDist = Math.abs(score - ((prev.min + prev.max) / 2));
+          const currDist = Math.abs(score - ((curr.min + curr.max) / 2));
+          return currDist < prevDist ? curr : prev;
+      });
+
+      return closest;
     }
+
 
     async function submitForm() {
       const nickname = document.getElementById("nickname").value.trim();
