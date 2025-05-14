@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>응답 전체 보기</title>
+  <title>전체 응답 보기</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
@@ -74,7 +74,7 @@
         return;
       }
 
-      const sorted = [...data].reverse(); // 최신순 정렬
+      const sorted = [...data].reverse(); // 최신순
       for (const r of sorted) {
         const row = document.createElement('tr');
         row.innerHTML = `

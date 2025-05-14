@@ -28,14 +28,10 @@
   </style>
 </head>
 <body>
-  <h1>추천 통계 시각화</h1>
+  <h1>추천된 행성 통계</h1>
   <button onclick="location.href='/'">🏠 메인으로 돌아가기</button>
 
-  <canvas id="sleepTimeChart"></canvas>
-  <canvas id="sleepStartChart"></canvas>
-  <canvas id="activeStartChart"></canvas>
-  <canvas id="mealChart"></canvas>
-  <canvas id="scoreChart"></canvas>
+  <canvas id="planetChart"></canvas>
 
   <script>
     async function loadData() {
@@ -44,72 +40,40 @@
       return data;
     }
 
-    function makeBarChart(ctxId, label, dataset, labels) {
-      const ctx = document.getElementById(ctxId).getContext('2d');
+    function makeBarChart(id, label, dataMap, labels) {
+      const ctx = document.getElementById(id).getContext('2d');
       new Chart(ctx, {
         type: 'bar',
         data: {
           labels,
           datasets: [{
             label,
-            data: labels.map(key => dataset[key] || 0),
+            data: labels.map(k => dataMap[k] || 0),
             backgroundColor: '#4e79a7'
           }]
         },
         options: {
           responsive: true,
           plugins: {
-            legend: { display: false },
-            title: { display: true, text: label }
-          }
-        }
-      });
-    }
-
-    function makeScoreChart(scores) {
-      const ctx = document.getElementById('scoreChart').getContext('2d');
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: scores.map((_, i) => i + 1),
-          datasets: [{
-            label: '추천 점수',
-            data: scores,
-            fill: false,
-            borderColor: '#f28e2b',
-            tension: 0.1
-          }]
-        },
-        options: {
-          responsive: true,
-          plugins: {
-            title: { display: true, text: '점수 분포' }
+            title: { display: true, text: label },
+            legend: { display: false }
           }
         }
       });
     }
 
     loadData().then(data => {
-      const count = (list) => list.reduce((acc, item) => {
-        acc[item] = (acc[item] || 0) + 1;
-        return acc;
-      }, {});
+      const count = {};
+      data.forEach(d => {
+        count[d.planet] = (count[d.planet] || 0) + 1;
+      });
 
-      const sleepTimes = count(data.map(d => d.sleepTime));
-      const sleepStarts = count(data.map(d => d.sleepStart));
-      const activeStarts = count(data.map(d => d.activeStart));
-      const meals = count(data.map(d => d.mealCount));
-      const scores = data.map(d => d.score);
+      const planetLabels = [
+        "Hypothetical-X3 (18시간)", "Hypothetical-X2 (20시간)", "TRAPPIST-1c (23.5시간)",
+        "Earth (24시간)", "Mars (24.6시간)", "Kepler-452b (26시간)", "Gliese 581 d (36시간)"
+      ];
 
-      makeBarChart('sleepTimeChart', '수면 시간 분포', sleepTimes,
-        ["5시간 이하", "5-7시간", "7-8시간", "8-10시간", "10시간 이상"]);
-      makeBarChart('sleepStartChart', '수면 시작 시간 분포', sleepStarts,
-        ["22시 이전", "22-0시", "0-2시", "2시 이후"]);
-      makeBarChart('activeStartChart', '준비 시작 시간 분포', activeStarts,
-        ["2시간 이상 전에 준비", "2시간-1시간 전", "1시간-30분 전", "30분 이내"]);
-      makeBarChart('mealChart', '식사 횟수 분포', meals,
-        ["1회", "2회", "3회", "3회 이상"]);
-      makeScoreChart(scores);
+      makeBarChart("planetChart", "추천된 행성 분포", count, planetLabels);
     });
   </script>
 </body>
