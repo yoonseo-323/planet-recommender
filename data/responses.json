@@ -1,3 +1,20 @@
 [
-  
+  {
+    "nickname": "ㅊㅇㅅ",
+    "sleepTime": "5시간 이하",
+    "sleepStart": "2시 이후",
+    "activeStart": "2시간-1시간 전",
+    "mealCount": "2회",
+    "score": 132,
+    "planet": "Gliese 581 d (36시간)"
+  },
+  {
+    "nickname": "ㅊㅇㅅ",
+    "sleepTime": "5시간 이하",
+    "sleepStart": "22시 이전",
+    "activeStart": "2시간 이상 전에 준비",
+    "mealCount": "1회",
+    "score": 112,
+    "planet": "Gliese 581 d (36시간)"
+  }
 ]
