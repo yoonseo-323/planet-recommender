@@ -16,5 +16,23 @@
     "mealCount": "2회",
     "score": 115,
     "planet": "Gliese 581 d (36시간)"
+  },
+  {
+    "nickname": "정우",
+    "sleepTime": "5-7시간",
+    "sleepStart": "0-2시",
+    "activeStart": "1시간-30분 전",
+    "mealCount": "3회",
+    "score": 101,
+    "planet": "Gliese 581 d (36시간)"
+  },
+  {
+    "nickname": "정우",
+    "sleepTime": "5-7시간",
+    "sleepStart": "0-2시",
+    "activeStart": "1시간-30분 전",
+    "mealCount": "3회",
+    "score": 101,
+    "planet": "Gliese 581 d (36시간)"
   }
 ]
