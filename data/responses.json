@@ -1,282 +1,21 @@
 [
   {
-    "nickname": "최윤서",
-    "sleepTime": "5-7시간",
-    "sleepStart": "2시 이후",
-    "activeStart": "2시간-1시간 전",
-    "mealCount": "2회",
-    "score": 112,
-    "planet": "Gliese 581 d (36시간)"
-  },
-  {
-    "nickname": "혁지",
-    "sleepTime": "5-7시간",
-    "sleepStart": "2시 이후",
-    "activeStart": "1시간-30분 전",
-    "mealCount": "2회",
-    "score": 115,
-    "planet": "Gliese 581 d (36시간)"
-  },
-  {
-    "nickname": "정우",
-    "sleepTime": "5-7시간",
-    "sleepStart": "0-2시",
-    "activeStart": "1시간-30분 전",
-    "mealCount": "3회",
-    "score": 101,
-    "planet": "Gliese 581 d (36시간)"
-  },
-  {
-    "nickname": "씨호",
-    "sleepTime": "7-8시간",
-    "sleepStart": "0-2시",
-    "activeStart": "1시간-30분 전",
-    "mealCount": "2회",
-    "score": 87,
-    "planet": "HD 40307 g (30시간)"
-  },
-  {
-    "nickname": "민기",
-    "sleepTime": "5시간 이하",
-    "sleepStart": "2시 이후",
-    "activeStart": "1시간-30분 전",
-    "mealCount": "2회",
-    "score": 135,
-    "planet": "Gliese 581 d (36시간)"
-  },
-  {
-    "nickname": "ㅇㅅㅇ",
-    "sleepTime": "7-8시간",
-    "sleepStart": "2시 이후",
+    "nickname": "정후5",
+    "sleepTime": "8-10시간",
+    "sleepStart": "22시 이전",
     "activeStart": "30분 이내",
-    "mealCount": "3회 이상",
-    "score": 87,
-    "planet": "HD 40307 g (30시간)"
-  },
-  {
-    "nickname": "혁진",
-    "sleepTime": "5-7시간",
-    "sleepStart": "2시 이후",
-    "activeStart": "1시간-30분 전",
-    "mealCount": "2회",
-    "score": 115,
-    "planet": "Gliese 581 d (36시간)"
-  },
-  {
-    "nickname": "율잉",
-    "sleepTime": "5시간 이하",
-    "sleepStart": "2시 이후",
-    "activeStart": "2시간-1시간 전",
-    "mealCount": "2회",
-    "score": 132,
-    "planet": "Gliese 581 d (36시간)"
-  },
-  {
-    "nickname": "123",
-    "sleepTime": "8-10시간",
-    "sleepStart": "2시 이후",
-    "activeStart": "1시간-30분 전",
-    "mealCount": "2회",
-    "score": 75,
-    "planet": "Wolf 1061c (25시간)"
-  },
-  {
-    "nickname": "잠만보",
-    "sleepTime": "8-10시간",
-    "sleepStart": "22-0시",
-    "activeStart": "2시간-1시간 전",
     "mealCount": "3회",
-    "score": 51,
+    "score": 50,
     "planet": "Earth / TRAPPIST-1d (24시간)"
   },
   {
-    "nickname": "찬욱",
-    "sleepTime": "5-7시간",
-    "sleepStart": "0-2시",
-    "activeStart": "30분 이내",
-    "mealCount": "3회",
-    "score": 105,
-    "planet": "Gliese 581 d (36시간)"
-  },
-  {
-    "nickname": "최",
+    "nickname": "ㅡ",
     "sleepTime": "7-8시간",
-    "sleepStart": "0-2시",
-    "activeStart": "2시간 이상 전에 준비",
-    "mealCount": "3회",
-    "score": 75,
-    "planet": "Wolf 1061c (25시간)"
-  },
-  {
-    "nickname": "율잉",
-    "sleepTime": "5시간 이하",
-    "sleepStart": "2시 이후",
-    "activeStart": "2시간-1시간 전",
-    "mealCount": "1회",
-    "score": 138,
-    "planet": "Gliese 581 d (36시간)"
-  },
-  {
-    "nickname": "ㅏㅏㅔ",
-    "sleepTime": "5시간 이하",
-    "sleepStart": "2시 이후",
-    "activeStart": "2시간-1시간 전",
-    "mealCount": "3회",
-    "score": 126,
-    "planet": "Gliese 581 d (36시간)"
-  },
-  {
-    "nickname": "Pjw",
-    "sleepTime": "5-7시간",
-    "sleepStart": "0-2시",
-    "activeStart": "30분 이내",
-    "mealCount": "2회",
-    "score": 111,
-    "planet": "Gliese 581 d (36시간)"
-  },
-  {
-    "nickname": "율잉",
-    "sleepTime": "5시간 이하",
-    "sleepStart": "2시 이후",
-    "activeStart": "2시간-1시간 전",
-    "mealCount": "1회",
-    "score": 138,
-    "planet": "Gliese 581 d (36시간)"
-  },
-  {
-    "nickname": "₩₩",
-    "sleepTime": "7-8시간",
-    "sleepStart": "0-2시",
-    "activeStart": "1시간-30분 전",
-    "mealCount": "3회",
-    "score": 81,
-    "planet": "Proxima b (28시간)"
-  },
-  {
-    "nickname": "Archimedes",
-    "sleepTime": "5-7시간",
-    "sleepStart": "22-0시",
-    "activeStart": "2시간-1시간 전",
-    "mealCount": "3회",
-    "score": 91,
-    "planet": "Kepler-186f (33시간)"
-  },
-  {
-    "nickname": "윤호",
-    "sleepTime": "5-7시간",
-    "sleepStart": "0-2시",
-    "activeStart": "30분 이내",
-    "mealCount": "2회",
-    "score": 111,
-    "planet": "Gliese 581 d (36시간)"
-  },
-  {
-    "nickname": "지우",
-    "sleepTime": "7-8시간",
-    "sleepStart": "22-0시",
-    "activeStart": "2시간-1시간 전",
-    "mealCount": "2회",
-    "score": 77,
-    "planet": "Kepler-452b (26시간)"
-  },
-  {
-    "nickname": "JH",
-    "sleepTime": "5-7시간",
-    "sleepStart": "0-2시",
-    "activeStart": "1시간-30분 전",
-    "mealCount": "3회",
-    "score": 101,
-    "planet": "Gliese 581 d (36시간)"
-  },
-  {
-    "nickname": "은율",
-    "sleepTime": "5-7시간",
-    "sleepStart": "2시 이후",
-    "activeStart": "1시간-30분 전",
-    "mealCount": "2회",
-    "score": 115,
-    "planet": "Gliese 581 d (36시간)"
-  },
-  {
-    "nickname": "이민지",
-    "sleepTime": "5-7시간",
-    "sleepStart": "0-2시",
-    "activeStart": "2시간-1시간 전",
-    "mealCount": "3회",
-    "score": 98,
-    "planet": "Gliese 581 d (36시간)"
-  },
-  {
-    "nickname": "율잉",
-    "sleepTime": "5시간 이하",
     "sleepStart": "22시 이전",
-    "activeStart": "2시간 이상 전에 준비",
-    "mealCount": "1회",
-    "score": 112,
-    "planet": "Gliese 581 d (36시간)"
-  },
-  {
-    "nickname": "p",
-    "sleepTime": "5-7시간",
-    "sleepStart": "2시 이후",
-    "activeStart": "30분 이내",
+    "activeStart": "1시간-30분 전",
     "mealCount": "2회",
-    "score": 119,
-    "planet": "Gliese 581 d (36시간)"
-  },
-  {
-    "nickname": "찬욱",
-    "sleepTime": "7-8시간",
-    "sleepStart": "0-2시",
-    "activeStart": "30분 이내",
-    "mealCount": "3회",
-    "score": 85,
-    "planet": "Proxima b (28시간)"
-  },
-  {
-    "nickname": "빵집",
-    "sleepTime": "7-8시간",
-    "sleepStart": "22-0시",
-    "activeStart": "2시간 이상 전에 준비",
-    "mealCount": "1회",
-    "score": 80,
-    "planet": "Kepler-452b (26시간)"
-  },
-  {
-    "nickname": ".",
-    "sleepTime": "5-7시간",
-    "sleepStart": "0-2시",
-    "activeStart": "2시간-1시간 전",
-    "mealCount": "2회",
-    "score": 104,
-    "planet": "Gliese 581 d (36시간)"
-  },
-  {
-    "nickname": "진",
-    "sleepTime": "5-7시간",
-    "sleepStart": "2시 이후",
-    "activeStart": "30분 이내",
-    "mealCount": "2회",
-    "score": 119,
-    "planet": "Gliese 581 d (36시간)"
-  },
-  {
-    "nickname": "찬욱",
-    "sleepTime": "8-10시간",
-    "sleepStart": "0-2시",
-    "activeStart": "30분 이내",
-    "mealCount": "3회",
-    "score": 65,
-    "planet": "Mars (24.6시간)"
-  },
-  {
-    "nickname": "asdfadd",
-    "sleepTime": "8-10시간",
-    "sleepStart": "22-0시",
-    "activeStart": "30분 이내",
-    "mealCount": "2회",
-    "score": 64,
-    "planet": "Mars (24.6시간)"
+    "score": 72,
+    "planet": "Wolf 1061c (25시간)"
   },
   {
     "nickname": "ㅐㅐ",
@@ -288,174 +27,201 @@
     "planet": "Kepler-186f (33시간)"
   },
   {
-    "nickname": "찬욱",
-    "sleepTime": "10시간 이상",
+    "nickname": "ㅐㅐ",
+    "sleepTime": "5시간 이하",
     "sleepStart": "0-2시",
     "activeStart": "30분 이내",
-    "mealCount": "3회",
-    "score": 45,
-    "planet": "TRAPPIST-1c (23.5시간)"
+    "mealCount": "2회",
+    "score": 131,
+    "planet": "Gliese 581 d (36시간)"
   },
   {
-    "nickname": "영찬",
-    "sleepTime": "7-8시간",
-    "sleepStart": "2시 이후",
-    "activeStart": "30분 이내",
-    "mealCount": "3회",
-    "score": 93,
-    "planet": "Kepler-186f (33시간)"
-  },
-  {
-    "nickname": "찬욱",
-    "sleepTime": "10시간 이상",
-    "sleepStart": "0-2시",
-    "activeStart": "30분 이내",
-    "mealCount": "3회",
-    "score": 45,
-    "planet": "TRAPPIST-1c (23.5시간)"
-  },
-  {
-    "nickname": "동현",
-    "sleepTime": "7-8시간",
-    "sleepStart": "0-2시",
-    "activeStart": "1시간-30분 전",
-    "mealCount": "3회",
-    "score": 81,
-    "planet": "Proxima b (28시간)"
-  },
-  {
-    "nickname": "",
+    "nickname": "ㅐㅐ",
     "sleepTime": "5시간 이하",
     "sleepStart": "22시 이전",
-    "activeStart": "2시간 이상 전에 준비",
-    "mealCount": "1회",
-    "score": 112,
+    "activeStart": "30분 이내",
+    "mealCount": "2회",
+    "score": 116,
     "planet": "Gliese 581 d (36시간)"
   },
   {
-    "nickname": "유예근",
+    "nickname": "ㅐㅐ",
+    "sleepTime": "5시간 이하",
+    "sleepStart": "22시 이전",
+    "activeStart": "30분 이내",
+    "mealCount": "2회",
+    "score": 116,
+    "planet": "Gliese 581 d (36시간)"
+  },
+  {
+    "nickname": "ㅐㅐ",
+    "sleepTime": "5시간 이하",
+    "sleepStart": "22시 이전",
+    "activeStart": "30분 이내",
+    "mealCount": "2회",
+    "score": 116,
+    "planet": "Gliese 581 d (36시간)"
+  },
+  {
+    "nickname": "ㅐㅐ",
+    "sleepTime": "5시간 이하",
+    "sleepStart": "22시 이전",
+    "activeStart": "30분 이내",
+    "mealCount": "2회",
+    "score": 116,
+    "planet": "Gliese 581 d (36시간)"
+  },
+  {
+    "nickname": "ㅐㅐ",
+    "sleepTime": "5시간 이하",
+    "sleepStart": "22시 이전",
+    "activeStart": "30분 이내",
+    "mealCount": "2회",
+    "score": 116,
+    "planet": "Gliese 581 d (36시간)"
+  },
+  {
+    "nickname": "ㅐㅐ",
+    "sleepTime": "5시간 이하",
+    "sleepStart": "22시 이전",
+    "activeStart": "30분 이내",
+    "mealCount": "3회",
+    "score": 110,
+    "planet": "Gliese 581 d (36시간)"
+  },
+  {
+    "nickname": "ㅐㅐ",
+    "sleepTime": "5시간 이하",
+    "sleepStart": "22시 이전",
+    "activeStart": "30분 이내",
+    "mealCount": "3회",
+    "score": 110,
+    "planet": "Gliese 581 d (36시간)"
+  },
+  {
+    "nickname": "ㅐㅐ",
+    "sleepTime": "5시간 이하",
+    "sleepStart": "22시 이전",
+    "activeStart": "30분 이내",
+    "mealCount": "3회",
+    "score": 110,
+    "planet": "Gliese 581 d (36시간)"
+  },
+  {
+    "nickname": "ㅐㅐ",
     "sleepTime": "5시간 이하",
     "sleepStart": "2시 이후",
     "activeStart": "30분 이내",
-    "mealCount": "2회",
-    "score": 139,
+    "mealCount": "3회",
+    "score": 133,
     "planet": "Gliese 581 d (36시간)"
   },
   {
-    "nickname": "찬욱",
-    "sleepTime": "8-10시간",
-    "sleepStart": "22-0시",
-    "activeStart": "30분 이내",
-    "mealCount": "3회",
-    "score": 58,
-    "planet": "Mars (24.6시간)"
-  },
-  {
-    "nickname": "정후",
-    "sleepTime": "5-7시간",
-    "sleepStart": "0-2시",
-    "activeStart": "30분 이내",
-    "mealCount": "3회",
-    "score": 105,
-    "planet": "Gliese 581 d (36시간)"
-  },
-  {
-    "nickname": "빵집",
-    "sleepTime": "7-8시간",
-    "sleepStart": "0-2시",
-    "activeStart": "30분 이내",
-    "mealCount": "2회",
-    "score": 91,
-    "planet": "Kepler-186f (33시간)"
-  },
-  {
-    "nickname": "찬욱",
-    "sleepTime": "10시간 이상",
-    "sleepStart": "22-0시",
-    "activeStart": "30분 이내",
-    "mealCount": "3회",
-    "score": 38,
-    "planet": "TRAPPIST-1c (23.5시간)"
-  },
-  {
-    "nickname": "성현",
-    "sleepTime": "5-7시간",
+    "nickname": "ㅐㅐ",
+    "sleepTime": "5시간 이하",
     "sleepStart": "2시 이후",
     "activeStart": "30분 이내",
-    "mealCount": "2회",
-    "score": 119,
+    "mealCount": "3회",
+    "score": 133,
     "planet": "Gliese 581 d (36시간)"
   },
   {
-    "nickname": "",
-    "sleepTime": "5-7시간",
-    "sleepStart": "0-2시",
-    "activeStart": "1시간-30분 전",
-    "mealCount": "2회",
-    "score": 107,
+    "nickname": "ㅐㅐ",
+    "sleepTime": "5시간 이하",
+    "sleepStart": "2시 이후",
+    "activeStart": "30분 이내",
+    "mealCount": "3회",
+    "score": 133,
     "planet": "Gliese 581 d (36시간)"
   },
   {
-    "nickname": "찬욱",
-    "sleepTime": "7-8시간",
+    "nickname": "ㅐㅐ",
+    "sleepTime": "5시간 이하",
     "sleepStart": "22-0시",
     "activeStart": "30분 이내",
     "mealCount": "3회",
-    "score": 78,
-    "planet": "Kepler-452b (26시간)"
-  },
-  {
-    "nickname": "Pjw",
-    "sleepTime": "5-7시간",
-    "sleepStart": "0-2시",
-    "activeStart": "1시간-30분 전",
-    "mealCount": "2회",
-    "score": 107,
+    "score": 118,
     "planet": "Gliese 581 d (36시간)"
   },
   {
-    "nickname": "Pjw",
-    "sleepTime": "5-7시간",
-    "sleepStart": "0-2시",
-    "activeStart": "1시간-30분 전",
-    "mealCount": "2회",
-    "score": 107,
+    "nickname": "ㅐㅐ",
+    "sleepTime": "5시간 이하",
+    "sleepStart": "22-0시",
+    "activeStart": "30분 이내",
+    "mealCount": "3회",
+    "score": 118,
     "planet": "Gliese 581 d (36시간)"
   },
   {
-    "nickname": "Pjw",
-    "sleepTime": "5-7시간",
-    "sleepStart": "0-2시",
-    "activeStart": "1시간-30분 전",
-    "mealCount": "2회",
-    "score": 107,
+    "nickname": "ㅐㅐ",
+    "sleepTime": "5시간 이하",
+    "sleepStart": "22-0시",
+    "activeStart": "30분 이내",
+    "mealCount": "3회",
+    "score": 118,
     "planet": "Gliese 581 d (36시간)"
   },
   {
-    "nickname": "Pjw",
-    "sleepTime": "5-7시간",
-    "sleepStart": "0-2시",
-    "activeStart": "1시간-30분 전",
-    "mealCount": "2회",
-    "score": 107,
+    "nickname": "ㅐㅐ",
+    "sleepTime": "5시간 이하",
+    "sleepStart": "22-0시",
+    "activeStart": "30분 이내",
+    "mealCount": "3회",
+    "score": 118,
     "planet": "Gliese 581 d (36시간)"
   },
   {
-    "nickname": "윤호",
-    "sleepTime": "5-7시간",
-    "sleepStart": "0-2시",
-    "activeStart": "1시간-30분 전",
-    "mealCount": "2회",
-    "score": 107,
+    "nickname": "ㅐㅐ",
+    "sleepTime": "5시간 이하",
+    "sleepStart": "22-0시",
+    "activeStart": "30분 이내",
+    "mealCount": "3회",
+    "score": 118,
     "planet": "Gliese 581 d (36시간)"
   },
   {
-    "nickname": "asdfadd",
+    "nickname": "ㅐㅐ",
+    "sleepTime": "5시간 이하",
+    "sleepStart": "22-0시",
+    "activeStart": "2시간 이상 전에 준비",
+    "mealCount": "3회",
+    "score": 108,
+    "planet": "Gliese 581 d (36시간)"
+  },
+  {
+    "nickname": "ㅐㅐ",
+    "sleepTime": "5시간 이하",
+    "sleepStart": "22-0시",
+    "activeStart": "2시간 이상 전에 준비",
+    "mealCount": "3회",
+    "score": 108,
+    "planet": "Gliese 581 d (36시간)"
+  },
+  {
+    "nickname": "ㅐㅐ",
+    "sleepTime": "5시간 이하",
+    "sleepStart": "22-0시",
+    "activeStart": "2시간 이상 전에 준비",
+    "mealCount": "3회",
+    "score": 108,
+    "planet": "Gliese 581 d (36시간)"
+  },
+  {
+    "nickname": "ㅐㅐ",
     "sleepTime": "8-10시간",
-    "sleepStart": "0-2시",
-    "activeStart": "1시간-30분 전",
-    "mealCount": "2회",
-    "score": 67,
-    "planet": "Wolf 1061c (25시간)"
+    "sleepStart": "22-0시",
+    "activeStart": "2시간 이상 전에 준비",
+    "mealCount": "3회",
+    "score": 48,
+    "planet": "Earth / TRAPPIST-1d (24시간)"
+  },
+  {
+    "nickname": "ㅐㅐ",
+    "sleepTime": "10시간 이상",
+    "sleepStart": "22-0시",
+    "activeStart": "2시간 이상 전에 준비",
+    "mealCount": "3회",
+    "score": 28,
+    "planet": "Hypothetical-X1 (22시간)"
   }
 ]
